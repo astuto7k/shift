@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-shiftlock-primary: #023EFE;
+  --color-shiftlock-secondary: #0020A8;
+  --color-shiftlock-bg: #27272A;
+  --color-shiftlock-bg-alt: #3F3F46;
+  --color-shiftlock-text: #F4F4F5;
+  --color-shiftlock-text-muted: #A1A1AA;
+  --color-shiftlock-border: #09090B;
+  --color-shiftlock-light: #FFFFFF;
+}
+
+@layer base {
+  body {
+    @apply bg-shiftlock-bg text-shiftlock-text font-sans antialiased overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-shiftlock-text;
+  }
+}
+
+/* Neo-Brutalist Utilities for Misfits/Big Games vibe */
+@layer utilities {
+  .shadow-solid {
+    box-shadow: 4px 4px 0px rgba(9, 9, 11, 1);
+  }
+  .shadow-solid-lg {
+    box-shadow: 8px 8px 0px rgba(9, 9, 11, 1);
+  }
+  .shadow-solid-hover {
+    transition: all 0.2s ease-in-out;
+  }
+  .shadow-solid-hover:hover {
+    box-shadow: 0px 0px 0px rgba(9, 9, 11, 1);
+    transform: translate(4px, 4px);
+  }
+  .shadow-solid-lg-hover {
+    transition: all 0.2s ease-in-out;
+  }
+  .shadow-solid-lg-hover:hover {
+    box-shadow: 2px 2px 0px rgba(9, 9, 11, 1);
+    transform: translate(6px, 6px);
+  }
+}
+
+/* Marquee Animations */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 120s linear infinite;
+    display: flex;
+    width: max-content;
+  }
+  .animate-marquee-reverse {
+    animation: marquee 120s linear infinite reverse;
+    display: flex;
+    width: max-content;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
